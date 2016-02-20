@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"some-other-dir/config"
 	"strings"
 
 	"github.com/adria-stef/TvShowDownloader/cmd"
+	"github.com/adria-stef/TvShowDownloader/config"
 	"github.com/adria-stef/TvShowDownloader/database"
 	"github.com/adria-stef/TvShowDownloader/model"
 )

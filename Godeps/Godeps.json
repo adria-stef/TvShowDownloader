@@ -1,0 +1,23 @@
+{
+	"ImportPath": "github.com/adria-stef/TvShowDownloader",
+	"GoVersion": "go1.5",
+	"Deps": [
+		{
+			"ImportPath": "github.com/boltdb/bolt",
+			"Comment": "v1.1.0-67-g2f846c3",
+			"Rev": "2f846c3551b76d7710f159be840d66c3d064abbe"
+		},
+		{
+			"ImportPath": "github.com/jasonlvhit/gocron",
+			"Rev": "0b564bf03e9665599efbcba1c6fba3d84212c197"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "50c6bc5e4292a1d4e65c6e9be5f53be28bcbe28e"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v2",
+			"Rev": "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4"
+		}
+	]
+}

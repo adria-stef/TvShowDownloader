@@ -8,7 +8,7 @@ import (
 
 	"github.com/adria-stef/TvShowDownloader/downloader"
 
-	"github.com/jasonlvhit/gocron"
+	"github.com/adria-stef/TvShowDownloader/Godeps/_workspace/src/github.com/jasonlvhit/gocron"
 )
 
 func main() {
