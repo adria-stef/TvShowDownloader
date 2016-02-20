@@ -1,9 +1,9 @@
-# TvShowDownloader [:crown:](http://adria-stef.github.io/TvShowDownloader/)
-
 [![Build Status](https://travis-ci.org/adria-stef/TvShowDownloader.svg?branch=master)](https://travis-ci.org/adria-stef/TvShowDownloader)
 [![Go Report Card](http://goreportcard.com/badge/adria-stef/TvShowDownloader)](http://goreportcard.com/report/adria-stef/TvShowDownloader)
 [![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](https://godoc.org/github.com/adria-stef/TvShowDownloader)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/adria-stef/TvShowDownloader/blob/master/LICENSE)
+#  
+# TvShowDownloader [:crown:](http://adria-stef.github.io/TvShowDownloader/)
 
 :tv: TvShowDownloader is a tool you can use to automatically download all your favorite Tv Shows.
 
