@@ -9,8 +9,8 @@ import (
 var bucket = []byte("bucket")
 
 //GetDB returns a bolt.db instance
-func GetDB() *bolt.DB {
-	db, err := bolt.Open("./files/bolt.db", 0644, nil)
+func GetDB(dbFilePath string) *bolt.DB {
+	db, err := bolt.Open(dbFilePath, 0644, nil)
 	if err != nil {
 		log.Fatalf("Error while opening DB %v", err)
 	}

@@ -9,7 +9,7 @@ import (
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
-func getItemsForDownload() []model.Item {
+func getItemsForDownload(dbFilePath string) []model.Item {
 	items := getNewItems()
 
 	var itemsForDownload []model.Item
@@ -18,7 +18,7 @@ func getItemsForDownload() []model.Item {
 
 		title := currentItem.Title
 
-		if isInMyList(title) && haveNotWatchedIt(title) {
+		if isInMyList(title) && haveNotWatchedIt(title, dbFilePath) {
 			itemsForDownload = append(itemsForDownload, currentItem)
 		}
 	}
@@ -47,8 +47,8 @@ func isInMyList(title string) bool {
 	return false
 }
 
-func haveNotWatchedIt(title string) bool {
-	db := database.GetDB()
+func haveNotWatchedIt(title, dbFilePath string) bool {
+	db := database.GetDB(dbFilePath)
 	defer db.Close()
 
 	title = strings.ToLower(title)

@@ -7,6 +7,7 @@ import (
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
+//GetRssFeed returns rss feed
 func GetRssFeed(rssFile []byte) model.RssFeed {
 	rssFeed := model.RssFeed{}
 	err := xml.Unmarshal(rssFile, &rssFeed)

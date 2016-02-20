@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/adria-stef/TvShowDownloader/cmd"
 	"github.com/adria-stef/TvShowDownloader/config"
@@ -15,12 +16,14 @@ import (
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
+//Starts the Download task
 func Download() {
 	config := configuration.GetConfig()
+	dbFilePath := "./files/bolt.db"
 	downloadPath := initDownloadPath(config.DownloadPath)
-	fmt.Printf("Download path: %s", downloadPath)
+	fmt.Printf("Check start: %s\n", time.Now())
 
-	itemsForDownload := getItemsForDownload()
+	itemsForDownload := getItemsForDownload(dbFilePath)
 
 	for _, item := range itemsForDownload {
 		if notInQueue(item.Title, downloadPath) {
@@ -29,7 +32,7 @@ func Download() {
 			//TODO check if  item's torrent is downloaded successfully
 			cmd.DownloadTvShow(torrentName, downloadPath)
 			//TODO check if file downloaded successfully
-			addToDB(item.Title)
+			addToDB(item.Title, dbFilePath)
 		}
 	}
 }
@@ -83,8 +86,8 @@ func changeSpaces(title string) string {
 	return strings.Replace(title, " ", ".", len(title))
 }
 
-func addToDB(itemTitle string) {
-	db := database.GetDB()
+func addToDB(itemTitle, dbFilePath string) {
+	db := database.GetDB(dbFilePath)
 	defer db.Close()
 
 	titleToLowerCase := strings.ToLower(itemTitle)
