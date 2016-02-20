@@ -9,6 +9,7 @@ import (
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
+//getItemsForDownload returns []model.Items in rssfeed that are both in the list of tv show and have note yet been watched
 func getItemsForDownload(dbFilePath string) []model.Item {
 	items := getNewItems()
 
@@ -26,6 +27,7 @@ func getItemsForDownload(dbFilePath string) []model.Item {
 	return itemsForDownload
 }
 
+//getNewItems returns []model.Item containg all new model.Item-
 func getNewItems() []model.Item {
 	rssFile := getRssFile()
 	rssFeed := configuration.GetRssFeed(rssFile)
@@ -33,6 +35,7 @@ func getNewItems() []model.Item {
 	return rssFeed.Channel.Items
 }
 
+//isInMyList returns true if title is in list of tv show followed
 func isInMyList(title string) bool {
 	config := configuration.GetConfig()
 
@@ -47,6 +50,7 @@ func isInMyList(title string) bool {
 	return false
 }
 
+//haveNotWatchedIt returns true if this episode hase not yet been downloaded
 func haveNotWatchedIt(title, dbFilePath string) bool {
 	db := database.GetDB(dbFilePath)
 	defer db.Close()
@@ -58,8 +62,8 @@ func haveNotWatchedIt(title, dbFilePath string) bool {
 		return false
 	}
 
-	showName, se := extarctShow(title)
-	currentSeason, currentEpisode := extractSeasonEpisode(se)
+	showName, se := ExtarctShow(title)
+	currentSeason, currentEpisode := ExtractSeasonEpisode(se)
 
 	lastSE := database.GetValue(db, []byte(strings.ToLower(showName)))
 	if lastSE == nil {
@@ -67,7 +71,7 @@ func haveNotWatchedIt(title, dbFilePath string) bool {
 		return true
 	}
 
-	lastSeason, lastEpisode := extractSeasonEpisode(string(lastSE))
+	lastSeason, lastEpisode := ExtractSeasonEpisode(string(lastSE))
 
 	if lastSeason < currentSeason {
 		return true

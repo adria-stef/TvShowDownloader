@@ -8,7 +8,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-//GetConfig returns Cofig struct containing all personal cofiguration
+//GetConfig umarshals list.yml configuration and returns Cofig struct containing all personal cofiguration
 func GetConfig() model.Config {
 	var config model.Config
 	data, err := ioutil.ReadFile("./files/list.yml")

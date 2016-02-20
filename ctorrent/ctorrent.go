@@ -1,4 +1,5 @@
-package cmd
+//Package ctorrent provides primitives for downloading torrent files with the ctorrent tool via the command line
+package ctorrent
 
 import (
 	"log"
@@ -6,6 +7,7 @@ import (
 	"runtime"
 )
 
+//DownloadTvShow downloads torrent file to a specified download path by executing command
 func DownloadTvShow(torrentName, downloadPath string) {
 
 	script := getProperScript()
@@ -19,6 +21,7 @@ func DownloadTvShow(torrentName, downloadPath string) {
 	}
 }
 
+//getProperScript return proper script for download depending on the platform
 func getProperScript() string {
 	var script string
 	switch runtime.GOOS {

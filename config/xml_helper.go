@@ -1,3 +1,4 @@
+//Package configuration provides ptimitives for xml and yml unmarshaling
 package configuration
 
 import (
@@ -7,7 +8,7 @@ import (
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
-//GetRssFeed returns rss feed
+//GetRssFeed unmarrshales rss.xml and returns rss feed struct
 func GetRssFeed(rssFile []byte) model.RssFeed {
 	rssFeed := model.RssFeed{}
 	err := xml.Unmarshal(rssFile, &rssFeed)

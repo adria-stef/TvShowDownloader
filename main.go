@@ -1,3 +1,4 @@
+//Package main is where the magic happens
 package main
 
 import (

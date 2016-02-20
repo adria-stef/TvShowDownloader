@@ -1,3 +1,4 @@
+//Package model provides the model
 package model
 
 //Config dexcribes the configuration of the app

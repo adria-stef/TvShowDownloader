@@ -43,5 +43,8 @@ If you want to specify the exact period of time that the checks are performed yo
 go run main.go minutes <number>
 ```
 
+### Godoc
+You ca see the godoc [here](https://godoc.org/github.com/adria-stef/TvShowDownloader).
+
 ## Copyright and license
 Code released under [the MIT license](https://github.com/adria-stef/TvShowDownloader/blob/master/LICENSE).

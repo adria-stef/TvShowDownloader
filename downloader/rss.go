@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+//getRssFile returns contents of rss feed in xml
 func getRssFile() []byte {
 	url := "https://eztv.ag/ezrss.xml"
 	cli := http.Client{}

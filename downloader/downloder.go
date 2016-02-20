@@ -1,3 +1,4 @@
+//Package downloader provides primitives for downloading
 package downloader
 
 import (
@@ -10,13 +11,20 @@ import (
 	"strings"
 	"time"
 
-	"github.com/adria-stef/TvShowDownloader/cmd"
 	"github.com/adria-stef/TvShowDownloader/config"
+	"github.com/adria-stef/TvShowDownloader/ctorrent"
 	"github.com/adria-stef/TvShowDownloader/database"
 	"github.com/adria-stef/TvShowDownloader/model"
 )
 
-//Starts the Download task
+//Download starts the Download task.
+//Download task consits of the following steps:
+//
+//1. Get the torrent file
+//
+//2. Download the actual file from torent
+//
+//3. Add download info to db for future references
 func Download() {
 	config := configuration.GetConfig()
 	dbFilePath := "./files/bolt.db"
@@ -28,15 +36,17 @@ func Download() {
 	for _, item := range itemsForDownload {
 		if notInQueue(item.Title, downloadPath) {
 			fmt.Printf("Downloading %s file...\n", changeSpaces(item.Title))
+
 			torrentName := getTorrentFile(item, downloadPath)
-			//TODO check if  item's torrent is downloaded successfully
-			cmd.DownloadTvShow(torrentName, downloadPath)
-			//TODO check if file downloaded successfully
+			ctorrent.DownloadTvShow(torrentName, downloadPath)
 			addToDB(item.Title, dbFilePath)
 		}
 	}
 }
 
+//initDownloadPath returns path that is going to be used for downloads
+//
+//if one is not specified in the configuration (files/list.yml) default location is: /torrents directory
 func initDownloadPath(downloadPath string) string {
 	if _, err := os.Stat(downloadPath); os.IsNotExist(err) {
 		dir := os.Getenv("PWD")
@@ -50,10 +60,11 @@ func initDownloadPath(downloadPath string) string {
 	return downloadPath
 }
 
+//notInQueue returns true if the same episode has not yet been downloaded
 func notInQueue(title, path string) bool {
 	files, _ := filepath.Glob(fmt.Sprintf("%s*", path))
 
-	showName, se := extarctShow(title)
+	showName, se := ExtarctShow(title)
 
 	for _, value := range files {
 		valueToLowerCase := strings.ToLower(value)
@@ -65,6 +76,7 @@ func notInQueue(title, path string) bool {
 	return true
 }
 
+//getTrrentFile downloads torrent file to specified path and returns the name of the file
 func getTorrentFile(item model.Item, downloadPath string) string {
 
 	cli := http.Client{}
@@ -82,16 +94,18 @@ func getTorrentFile(item model.Item, downloadPath string) string {
 	return fileName
 }
 
+//changeSpaces turns spaces to dots
 func changeSpaces(title string) string {
 	return strings.Replace(title, " ", ".", len(title))
 }
 
+//addToDB adds a key-value pair title-last season and last episode to DB
 func addToDB(itemTitle, dbFilePath string) {
 	db := database.GetDB(dbFilePath)
 	defer db.Close()
 
 	titleToLowerCase := strings.ToLower(itemTitle)
 
-	showName, se := extarctShow(titleToLowerCase)
+	showName, se := ExtarctShow(titleToLowerCase)
 	database.StoreData(db, []byte(showName), []byte(se))
 }
