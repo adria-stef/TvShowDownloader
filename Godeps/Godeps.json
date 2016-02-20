@@ -1,6 +1,9 @@
 {
 	"ImportPath": "github.com/adria-stef/TvShowDownloader",
 	"GoVersion": "go1.5",
+	"Packages": [
+		"./..."
+	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/boltdb/bolt",
@@ -10,6 +13,16 @@
 		{
 			"ImportPath": "github.com/jasonlvhit/gocron",
 			"Rev": "0b564bf03e9665599efbcba1c6fba3d84212c197"
+		},
+		{
+			"ImportPath": "github.com/onsi/ginkgo",
+			"Comment": "v1.2.0-22-g39d2c24",
+			"Rev": "39d2c24f8a92c88f7e7f4d8ec6c80d3cc8f5ac65"
+		},
+		{
+			"ImportPath": "github.com/onsi/gomega",
+			"Comment": "v1.0-71-g2152b45",
+			"Rev": "2152b45fa28a361beba9aab0885972323a444e28"
 		},
 		{
 			"ImportPath": "golang.org/x/sys/unix",
