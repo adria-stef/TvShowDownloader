@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Tvshowdownloader by adria-stef</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Tvshowdownloader</h1>
+          <h2>Project for GO course</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/adria-stef/TvShowDownloader/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/adria-stef/TvShowDownloader/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/adria-stef/TvShowDownloader" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="tvshowdownloader-crown" class="anchor" href="#tvshowdownloader-crown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TvShowDownloader <img class="emoji" title=":crown:" alt=":crown:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f451.png" height="20" width="20" align="absmiddle">
+</h1>
+
+<p><img class="emoji" title=":tv:" alt=":tv:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4fa.png" height="20" width="20" align="absmiddle"> TvShowDownloader is a tool you can use to automatically download all your favorite Tv Shows.</p>
+
+<p><img class="emoji" title=":confetti_ball:" alt=":confetti_ball:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f38a.png" height="20" width="20" align="absmiddle"> All you need to do is configure a path you want you files to appear in and make a list of all your shows.</p>
+
+<h2>
+<a id="prerequsites" class="anchor" href="#prerequsites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequsites</h2>
+
+<ol>
+<li>You need an Internet connection.</li>
+<li>You need to download and install the <code>ctorrent</code> tool.</li>
+</ol>
+
+<h2>
+<a id="get-the-project" class="anchor" href="#get-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get the Project</h2>
+
+<p>Run <code>go get github.com/adria-stef/TvShowDownloader</code></p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h2>
+
+<h3>
+<a id="configure-the-application" class="anchor" href="#configure-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure the application</h3>
+
+<p>Populate the <code>files/list.yml</code> file. Add a downloading path and a list of all tv shows.</p>
+
+<p>An example file would like this:</p>
+
+<div class="highlight highlight-source-shell"><pre>---
+download_path: some/path/to/file
+list:
+  - New Girl
+  - Stuck <span class="pl-k">in</span> the Middle
+  - NCIS New Orleans
+  - Colony
+  - Portlandia
+  - Impractical Jokers</pre></div>
+
+<h3>
+<a id="run-it" class="anchor" href="#run-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run it!</h3>
+
+<p>Simply run the following command in the root of the repository:</p>
+
+<div class="highlight highlight-source-shell"><pre>go run main.go</pre></div>
+
+<p>If you want to specify the exact period of time that the checks are performed you can use the <code>minutes</code> parameter:</p>
+
+<div class="highlight highlight-source-shell"><pre>go run main.go minutes <span class="pl-k">&lt;</span>number<span class="pl-k">&gt;</span></pre></div>
+
+<h3>
+<a id="godoc" class="anchor" href="#godoc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Godoc</h3>
+
+<p>You ca see the godoc <a href="https://godoc.org/github.com/adria-stef/TvShowDownloader">here</a>.</p>
+
+<h2>
+<a id="copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright and license</h2>
+
+<p>Code released under <a href="https://github.com/adria-stef/TvShowDownloader/blob/master/LICENSE">the MIT license</a>.</p>
+        </section>
+
+        <footer>
+          Tvshowdownloader is maintained by <a href="https://github.com/adria-stef">adria-stef</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
